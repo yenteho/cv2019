@@ -1,0 +1,216 @@
+//-------------------- padding 0.1 rem ~ 1000 rem(1 px ~ 100 px) --------------------//
+
+$class: pd-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding: $i * 0.1rem;
+  }
+}
+
+$class: pd-tb-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding: $i * 0.1rem 0;
+  }
+}
+
+$class: pd-rl-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding: 0 $i * 0.1rem;
+  }
+}
+
+$class: pd-t-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding-top: $i * 0.1rem;
+  }
+}
+
+$class: pd-b-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding-bottom: $i * 0.1rem;
+  }
+}
+
+$class: pd-r-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding-right: $i * 0.1rem;
+  }
+}
+
+$class: pd-l-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    padding-left: $i * 0.1rem;
+  }
+}
+
+//-------------------- margin 0.1 rem ~ 1000 rem(1 px ~ 100 px) --------------------//
+
+$class: mg-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin: $i * 0.1rem;
+  }
+}
+
+$class: mg-tb-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin: $i * 0.1rem 0;
+  }
+}
+
+$class: mg-rl-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin: 0 $i * 0.1rem;
+  }
+}
+
+$class: mg-t-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin-top: $i * 0.1rem;
+  }
+}
+
+$class: mg-b-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin-bottom: $i * 0.1rem;
+  }
+}
+
+$class: mg-r-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin-right: $i * 0.1rem;
+  }
+}
+
+$class: mg-l-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    margin-left: $i * 0.1rem;
+  }
+}
+
+//-------------------- width / min-width / max-width 0.1 rem ~ 1000 rem + 1% ~100% --------------------//
+
+$class: width-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    width: $i * 0.1rem;
+  }
+}
+
+$class: minWidth-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    min-width: $i * 0.1rem;
+  }
+}
+
+$class: maxWidth-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    max-width: $i * 0.1rem;
+  }
+}
+
+$class: width-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i}p {
+    width: $i * 1%;
+  }
+}
+
+$class: minWidth-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i}p {
+    min-width: $i * 1%;
+  }
+}
+
+$class: maxWidth-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i}p {
+    max-width: $i * 1%;
+  }
+}
+
+//-------------------- height / min-height / max-height / line-height 0.1 rem ~ 1000 rem (1 px ~ 100 px) --------------------//
+
+$class: height-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    height: $i * 0.1rem;
+  }
+}
+
+$class: minHight-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    min-height: $i * 0.1rem;
+  }
+}
+
+$class: maxHeight-;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    max-height: $i * 0.1rem;
+  }
+}
+
+//-------------------- line-height 0.8 ~ 2.0 --------------------//
+
+$class: lht-;
+@for $i from 8 through 20 {
+  .#{$class}#{$i} {
+    line-height: $i * 0.1;
+  }
+}
+
+//-------------------- top / left / right / bottom 0.1 rem ~ 1000 rem(1 px ~ 100 px) --------------------//
+
+$class: top-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i} {
+    top: $i * 0.1rem;
+  }
+}
+
+$class: right-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i} {
+    right: $i * 0.1rem;
+  }
+}
+
+$class: left-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i} {
+    left: $i * 0.1rem;
+  }
+}
+
+$class: bottom-;
+@for $i from 1 through 100 {
+  .#{$class}#{$i} {
+    bottom: $i * 0.1rem;
+  }
+}
+
+//-------------------- flex-basis 0.1 rem ~ 1000 rem(1 px ~ 100 px)  --------------------//
+
+$class: flex-b;
+@for $i from 1 through 1000 {
+  .#{$class}#{$i} {
+    flex-basis: $i * 0.1rem;
+  }
+}

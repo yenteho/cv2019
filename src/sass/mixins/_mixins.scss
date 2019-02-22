@@ -1,0 +1,266 @@
+//--------------- Colors & Background-Color---------------//
+@mixin c($c: black, $bgc: transparent) {
+  color: $c;
+  background-color: $bgc;
+}
+//--------------- Padding & Margin ---------------//
+@mixin pm($p: 0, $m: 0) {
+  padding: $p;
+  margin: $m;
+}
+//-------------------- shape --------------------//
+// square
+@mixin wh($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+// square with fillet
+@mixin whb($w, $h, $bdrz: 0px) {
+  width: $w;
+  height: $h;
+  border-radius: $bdrz;
+}
+// circle
+@mixin circle($w) {
+  width: $w;
+  height: $w;
+  border-radius: 50%;
+}
+// triangle
+@mixin triangle($direction, $size: 6px, $color: #222) {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  @if ($direction == 'up') {
+    border-bottom: $size solid $color;
+    border-left: 1/1.6 * $size solid transparent;
+    border-right: 1/1.6 * $size solid transparent;
+  } @else if ($direction == 'down') {
+    border-top: $size solid $color;
+    border-left: 1/1.6 * $size solid transparent;
+    border-right: 1/1.6 * $size solid transparent;
+  } @else if ($direction == 'left') {
+    border-top: 1/1.6 * $size solid transparent;
+    border-bottom: 1/1.6 * $size solid transparent;
+    border-right: $size solid $color;
+  } @else if ($direction == 'right') {
+    border-top: 1/1.6 * $size solid transparent;
+    border-bottom: 1/1.6 * $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+//-------------------- center --------------------//
+
+// margin左右置中
+@mixin m_center {
+  margin: 0 auto;
+  position: relative;
+}
+//左上50%置中
+@mixin tl_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//垂直50%置中
+@mixin t_center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+// 上下左右置中center
+@mixin ghost_center {
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    // width: .1px
+  }
+}
+// flexbox置中
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//-------------------- Scrolling Containers --------------------//
+// Flexbox 左右滑
+@mixin flex_scrollx {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+//固定
+@mixin sticky($t: 0, $b: auto) {
+  position: fixed;
+  z-index: 2;
+  top: $t;
+  bottom: $b;
+}
+
+//-------------------- fonts & colors --------------------//
+
+@mixin text-overflow($w, $h) {
+  width: $w;
+  height: $h;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+@mixin fontstyle($fs, $ta: center) {
+  font-size: $fs;
+  text-align: $ta;
+}
+
+//-------------------- clearfix --------------------//
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+//-------------------- currency --------------------//
+%currency {
+  position: relative;
+  &:before {
+    content: '$';
+    position: relative;
+    left: 0;
+  }
+}
+
+.USD %currency:before {
+  content: '$';
+}
+.EUR %currency:before {
+  content: '\20AC'; // must escape the html entities for each currency symbol
+}
+.GBP %currency:before {
+  content: '\00A3';
+}
+.CN %currency:before {
+  content: '￥';
+}
+.ILS %currency:before {
+  content: '\20AA';
+}
+
+//-------------------- css grid--------------------//
+@mixin grid {
+  display: -ms-grid;
+  display: grid;
+}
+@mixin grid-child($col-start, $col-end, $row-start, $row-end) {
+  -ms-grid-column: $col-start;
+  -ms-grid-column-span: $col-end - $col-start;
+  -ms-grid-row: $row-start;
+  -ms-grid-row-span: $row-end - $row-start;
+  grid-column: #{$col-start}/#{$col-end};
+  grid-row: #{$row-start}/#{$row-end};
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
+//-------------------- Grid --------------------//
+
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
+  @include clearfix;
+
+  [class^='col-'] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
+    );
+  }
+}

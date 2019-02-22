@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { H1, H2, H3, H4 } from './components/typography'
+import { default as Button } from './components/button'
+import './sass/style.scss';
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div>
+          <H1>Heading 1</H1>
+          <H2>Heading 2</H2>
+          <H3>Heading 3</H3>
+          <H4>Heading 4</H4>
+          <Button type="submit"><H3>Hello world</H3></Button>
+        </div>
       </div>
     );
   }
 }
-
 export default App;

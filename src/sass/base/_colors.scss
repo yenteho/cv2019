@@ -1,0 +1,60 @@
+@import '../mixins/mixins';
+
+//-------------------- Color Variables --------------------//
+$colorWhite: #fff;
+$colorWhite80p: rgba(255, 255, 255, 0.8);
+$colorBlack: #000;
+$colorPrimary: #d71149;
+$colorPrimaryDark1: #c30f42;
+$colorPrimaryDark2: #a30046;
+$colorPrimaryLight1: #ff566a;
+$colorPrimaryLight2: #ea5164;
+
+$color-grey-dark-1: #363636;
+
+$color-grey-light-1: #f4f4f4;
+$color-grey-light-2: #f3f3f3;
+$color-grey-light-3: #cecece;
+
+:export {
+  colorWhite: #fff;
+  colorWhite80p: rgba(255, 255, 255, 0.8);
+  colorWhite60p: rgba(255, 255, 255, 0.6);
+  colorBlack: #000;
+  colorBlack32p: rgba(0, 0, 0, 0.32);
+  colorBlack64p: rgba(0, 0, 0, 0.64);
+  colorPrimary: #ff9200;
+  colorPrimaryDark1: #b86800;
+  colorPrimaryDark2: #a30046;
+  colorPrimaryLight1: #ff566a;
+  colorPrimaryLight2: #ea5164;
+
+  colorGreyDark1: #363636;
+  colorGreyDark2: #3d3d3d;
+
+  colorGreyLight1: #f4f4f4;
+}
+
+$color-grey-dark-1: #333;
+$color-grey-dark-2: #777;
+$color-grey-dark-3: #999;
+$color-grey-dark-4: #76797b;
+$color-grey-dark-5: #808080;
+
+$color-yellow-1: #ffd165;
+$color-green-1: #87cc62;
+$color-green-2: #390;
+$color-red-1: #a31c48;
+
+$dots-inactive: rgba(0, 0, 0, 0.2);
+$dots-active: #007aff;
+
+$shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+$shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+$line1: 1px solid $color-grey-light-2;
+$line2: 1px solid #ddd;
+
+//-------------------- Font Variables --------------------//
+
+$font-primary: 'HelveticaNeue', Helvetica, Arial, 'Lucida Grande', sans-serif;
