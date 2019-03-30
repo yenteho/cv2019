@@ -10,7 +10,7 @@ import theme from 'styled-theming';
 
 // const DefaultTheme = {
 //   backgroundColor: 'white',
-//   fontColor: "#33997a",
+//   fontColor: "#33997a",`
 //   borderColor: "#33997a"
 // }
 // const PinkTheme = {
@@ -33,16 +33,58 @@ const BorderColor = theme('mode', {
   PinkTheme: '#ffd7e8',
 });
 
+// function withLoading (Component) {
+//   return function({loadingComponent,...restProps}){
+//     if(!restProps.data) return loadingComponent
+//     return <Component {...restProps} />
+//   }
+// } //=> 匿名函式 React Devtool 沒有名字
+
+function withLoading (Component) {
+  function withLoadingHOC ({loadingComponent,...restProps}){
+    if(!restProps.data) return loadingComponent
+    return <Component {...restProps} />
+  } 
+  return withLoadingHOC
+}
+
+
+const LoadingText1 = () => (
+  <h1>loading1...</h1>
+)
+const LoadingText2 = () => (
+  <h1>loading2...</h1>
+)
+
+const ButtonText = (props) => {
+  return (
+    <React.Fragment>
+      <Button>{props.data.text}</Button>
+      {props.loadingComponent}
+    </React.Fragment>
+    )
+}
+
+const ButtonTextwithLoading = withLoading(ButtonText)
+
 export const App = () => {
   return (
     <div>
-      <Button>Normal</Button>
-      <ThemeProvider theme={{ mode: 'PinkTheme' }}>
-        <Button>Themed</Button>
-      </ThemeProvider>
+      <ButtonTextwithLoading data={{text: 'Hello'}} loadingComponent={<LoadingText2/>} />
     </div>
   );
 }
+
+// export const App = () => {
+//   return (
+//     <div>
+//       <Button>Normal</Button>
+//       <ThemeProvider theme={{ mode: 'PinkTheme' }}>
+//         <Button>Themed</Button>
+//       </ThemeProvider>
+//     </div>
+//   );
+// }
 
 // class App extends Component {
 //   // We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
